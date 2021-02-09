@@ -17,6 +17,7 @@ def compare_bits(bit_array):
     for (bit1, bit2) in zip(bit_array, pi_bits):
         if bit1 != bit2:
             print(f"Bits are not equal at bit {i}")
+            break
         #print(bit1, bit2)
         #if i > 100:
             #break
