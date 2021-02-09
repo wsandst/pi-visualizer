@@ -2,6 +2,7 @@ import time
 import decimal
 import sys
 import generate_image
+import comp_helper
 
 def main():
     file = open("pi.txt")
@@ -32,4 +33,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    #comp_helper.compare_bits([0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1])
     #generate_image.generate_image("pi1mil")
