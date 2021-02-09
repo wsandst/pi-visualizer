@@ -1,7 +1,7 @@
 import time
 import decimal
 import sys
-
+import generate_image
 
 def main():
     file = open("pi.txt")
@@ -32,3 +32,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    #generate_image.generate_image("pi1mil")
