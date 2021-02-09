@@ -1,6 +1,9 @@
 import time
 import decimal
 import sys
+import generate_image
+import comp_helper
+
 
 def convert_base_2(num: decimal.Decimal, cur_pow: int):
     if cur_pow < 1:
@@ -24,7 +27,6 @@ def convert_base_2(num: decimal.Decimal, cur_pow: int):
             digits_n.extend([0] * (cur_pow - len(digit)))
         return digits_n
 
-
 def main():
     decimal.getcontext().prec = 10**10
     decimal.getcontext().Emin = -999999999999999
@@ -47,3 +49,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    #comp_helper.compare_bits([0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1])
+    #generate_image.generate_image("pi1mil")
