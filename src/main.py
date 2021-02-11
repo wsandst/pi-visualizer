@@ -2,7 +2,7 @@ import time
 import decimal
 import sys
 import math
-#import generate_image
+import generate_image
 #import comp_helper
 def to_hex(num: list):
     symbols = '0123456789ABCDEF'
@@ -91,20 +91,13 @@ def main():
     end = time.time()
     print("end: ", end - start)
 
-
-    hx_partion = binary[2:]
-    hx_partion = list(to_hex(hx_partion))
-    st = ''
-    for i in range(50):
-        st += hx_partion[10**6 - 50 + i]
-    print(st)
-
-    #val = sum([val << i for i, val in enumerate(binary)])
-    #print(val)
-    #print(binary)
-    
+    return binary
+    #hx_partion = binary[2:]
+    #hx_partion = list(to_hex(hx_partion))
+    #st = ''
+    #for i in range(50):
+        #st += hx_partion[10**6 - 50 + i]
 
 if __name__ == "__main__":
-    main()
-    #comp_helper.compare_bits([0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1])
-    #generate_image.generate_image("pi1mil")
+    binary = main()
+    generate_image.generate_image_from_list(binary, "pi")
