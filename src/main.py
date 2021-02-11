@@ -16,7 +16,6 @@ def to_hex(num: list):
         i += 1
         ind *= 2
     yield symbols[ind]
-
     
 
 def flip_number(num: list):
@@ -67,7 +66,6 @@ def main():
 
     pi = '3' + lines[0][2:nums + 1]
     pi = decimal.Decimal(pi)
-    print(sys.getsizeof(pi))
     context = decimal.getcontext()
     k = context.logb(pi)   #pi has been multiplied by 10^k (we removed the .)
         #We want to remove the factor 5 ^ k in order to preserve binary order of digits
@@ -83,25 +81,12 @@ def main():
     del num_part
     start_pow = 2**start_exp
 
-    print(context.logb(pi), k)
     print("start")
     start = time.time()
     binary = convert_base_2(pi, start_pow, dict())
     binary = flip_number(binary)
     end = time.time()
     print("end: ", end - start)
-
-
-    hx_partion = binary[2:]
-    hx_partion = list(to_hex(hx_partion))
-    st = ''
-    for i in range(50):
-        st += hx_partion[10**6 - 50 + i]
-    print(st)
-
-    #val = sum([val << i for i, val in enumerate(binary)])
-    #print(val)
-    #print(binary)
     
 
 if __name__ == "__main__":
