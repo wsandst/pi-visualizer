@@ -2,7 +2,7 @@ import time
 import decimal
 import sys
 import math
-#import generate_image
+import generate_image
 #import comp_helper
 def to_hex(num: list):
     symbols = '0123456789ABCDEF'
@@ -55,17 +55,17 @@ def convert_base_2(num: decimal.Decimal, cur_pow: int, lookup: dict):
             digits_n.extend([0] * (cur_pow - len(digit)))
         return digits_n
 
-def main():
-    nums = 10**6
+def convert_pi_txt_to_binary(filename, nums):
     decimal.getcontext().prec = 10**9
     decimal.getcontext().Emin = -999999999999999
     decimal.getcontext().Emax = 0-decimal.getcontext().Emin
-    file = open("pi.txt")
+    file = open(filename)
     lines = file.readlines()
     print("File done")
 
     pi = '3' + lines[0][2:nums + 1]
     pi = decimal.Decimal(pi)
+    file.close()
     context = decimal.getcontext()
     k = context.logb(pi)   #pi has been multiplied by 10^k (we removed the .)
         #We want to remove the factor 5 ^ k in order to preserve binary order of digits
@@ -87,9 +87,12 @@ def main():
     binary = flip_number(binary)
     end = time.time()
     print("end: ", end - start)
-    
+
+    return binary
+
+def main():
+    binary = convert_pi_txt_to_binary("pi.txt", 10**4)
+    generate_image.generate_image_from_list(binary, "pi")
 
 if __name__ == "__main__":
     main()
-    #comp_helper.compare_bits([0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1])
-    #generate_image.generate_image("pi1mil")

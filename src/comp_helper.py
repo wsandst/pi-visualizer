@@ -11,6 +11,19 @@ def read_bits_from_file(name: str):
                 num >>= 1
             byte = infile.read(1)
 
+def getbytes(bits):
+    done = False
+    while not done:
+        byte = 0
+        for _ in range(0, 8):
+            try:
+                bit = next(bits)
+            except StopIteration:
+                bit = 0
+                done = True
+            byte = (byte << 1) | bit
+        yield byte
+
 def compare_bits(bit_array):
     pi_bits = read_bits_from_file("pi1mil")
     i = 0
@@ -22,4 +35,6 @@ def compare_bits(bit_array):
         #if i > 100:
             #break
         i += 1
+
+def
 
